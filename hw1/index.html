@@ -1,7 +1,460 @@
+<!DOCTYPE html>
 <html>
-	<head>
-	</head>
-	<body>
-		Homework 1 index.html here
-	</body>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="overview">Overview</h1>
+<p><a href="https://cal-cs184-student.github.io/hw-webpages-sp24-Catttttttt/hw1/index.html">Link to Webpage</a></p>
+<p><em>This is originally written in <code>docs\index.md</code> and exported to <code>docs\index.html</code> using Markdown PDF extension.</em></p>
+<p>I implemented various functionalities related to rasterization (basic and supersampling), texture mapping, and mipmapping. I had a hard time figuring out the index for supersample. I also had a hard time figuring out the 6 combinations for mipmaps for texture mapping, which I thought I understood in lecture. I ended up spending a lot of time in office hour and homework parties. Through this assignment, I gained insights into the complexities and optimizations involved in rendering realistic 3D scenes on a computer screen.</p>
+<h2 id="task-1-triangle-rasterization">Task 1: Triangle Rasterization</h2>
+<p>To rasterize triangles, I implemented rasterize_triangle in <code>rasterizer.cpp</code>, using a basic algorithm that calculates the bounding box of the triangle and determines whether each pixel is inside the triangle using 3 line tests. If a pixel is inside the triangle, it is filled with the specified color.</p>
+<p>This algorithm is checking every pixel in the bounding box, which makes it no worse than one that checks each sample within the bounding box of the triangle.</p>
+<p><img src="screenshot_2-11_8-48-48.png" alt="alt text"></p>
+<p><em><code>basic/test4.svg</code> rendered with the default viewing parameters, with the pixel inspector centered on a thin corner of the purple traingle, which is interesting because it's aliasing and looks broken.</em></p>
+<h2 id="task-2-antialiasing-by-supersampling">Task 2: Antialiasing by Supersampling</h2>
+<p>The key data structures used in my supersampling algorithm include the resized sample buffer. It is resized to <code>(width * sqrt(sample_rate)) * (height * sqrt(sample_rate))</code> in order to represent all of the subpixels. Then, I used <code>resolve_to_framebuffer()</code> to average subpixels that are inside the same pixel to get the actual color of that pixel.</p>
+<p>Supersampling is useful because it samples multiple points within each pixel and averaging the results. This averaging process helps to blend colors along the edges of triangles, resulting in smoother transitions and reduced aliasing artifacts. Hence, it improves the overall quality by fixing broken thin lines, weird edges, etc..</p>
+<p>To incorporate supersampling into the rasterization pipeline, I introduced additional steps to evaluate the color of each subpixel and average them down to each pixel. This involved modifying the loop that iterates over pixels to iterate over subpixels instead. I also modified <code>RasterizerImp::resolve_to_framebuffer</code> to average subpixels taht are inside the same pixel. The results are then put into <code>rgb_framebuffer_target</code>, which will get printed. In addition, to ensure that lines and points still render correctly, I modified <code>RasterizerImp::fill_pixel</code> to ensure that they are still coming out as a single pixel instead of multiple subpixels.</p>
+<p><img src="screenshot_2-12_18-10-54.png" alt="alt text"></p>
+<p><em>Default view with a sample rate of 1.</em></p>
+<p><img src="screenshot_2-12_18-10-56.png" alt="alt text"></p>
+<p><em>Supersampling with a sample rate of 4.</em></p>
+<p><img src="screenshot_2-12_18-11-1.png" alt="alt text"></p>
+<p><em>Supersampling with a sample rate of 16.</em></p>
+<h4 id="observations">Observations</h4>
+<p>With a sample rate of 1, the triangle is aliasing with jagged edge and basically broken. As the sample rate increases to 4 and 16, the jagged edges become smoother, and the overall image quality improves. The thin triangle corner that becomes compelte shows the dramatic effect of supersampling.</p>
+<h2 id="task-3-transforms">Task 3: Transforms</h2>
+<p>To complete Task 3, I implemented translation, scaling, and rotation transforms in the <code>transforms.cpp</code>, which operate in homogeneous coordinates.</p>
+<p>With these transforms implemented, I updated the <code>svg/transforms/robot.svg</code> file to depict the cubeman lying down on an invisible bed. I adjusted the colors to show that he's blue, and adjusted his legs to be wide open.</p>
+<p><img src="screenshot_2-12_21-48-20.png" alt="alt text"></p>
+<h2 id="task-4-barycentric-coordinates">Task 4: Barycentric Coordinates</h2>
+<p>Barycentric coordinates are a coordinate system used to specify the position of a point within a triangle in terms of a weighted sum of the triangle's vertices. They can represent the relative areas of smaller triangles formed by the point and the edges of the triangle.</p>
+<p><img src="screenshot_2-12_22-12-44.png" alt="alt text"></p>
+<p>Since Barycentric coordinates are used, the traingle above that are simply defined by three vertices of red, blue, and green, in <code>svg/perfect_triangle.svg</code> produces a smoothly blended color triangle. As it gets closer to its center, it gets darker, as the Barycentric coordinates are almost equal and thus present an addition of all colors with almost equal weights, which is black.</p>
+<p><img src="screenshot_2-12_21-56-22.png" alt="alt text"></p>
+<p><em><code>svg/basic/test7.svg</code> with default viewing parameters and sample rate 1.</em></p>
+<h2 id="task-5-%22pixel-sampling%22-for-texture-mapping">Task 5: &quot;Pixel sampling&quot; for texture mapping</h2>
+<p>Pixel sampling is applying texels from texture to paint a surface. To perform texture mapping, pixel sampling is implemented using two main methods: nearest and bilinear sampling.</p>
+<ol>
+<li>
+<p>Nearest Sampling: I simply assigned the color of the nearest pixel on the texture map to the corresponding point on the surface being rendered.</p>
+</li>
+<li>
+<p>Bilinear Sampling: I interpolated between the colors of the four nearest pixels on the texture map, based on the fractional distance of the point from each pixel.</p>
+</li>
+</ol>
+<p float="left">
+  <img src="screenshot_2-13_10-3-16.png" width="300" />
+  <img src="screenshot_2-13_10-3-24.png" width="300" /> 
+  <img src="screenshot_2-13_10-3-33.png" width="300" />
+  <img src="screenshot_2-13_10-3-40.png" width="300" />
+</p>
+<p><em>From left to right: nearest sampling at 1 sample per pixel, nearest sampling at 16 samples per pixel, bilinear sampling at 1 sample per pixel, and bilinear sampling at 16 samples per pixel.</em></p>
+<p>Comparing these four pictures, their smoothness, details, and computational costs increase from left to right. Nearest sampling at 1 sample per pixel makes each pixel represents a single texel without any interpolation. Increased sample rate doesn't make much difference since nearest sampling does not interpolate between texels, the image is still aliasing, as the line of longitude is broken.</p>
+<p>Bilinear Sampling at 1 Sample per Pixel interpolates between the four nearest texels to each screen pixel based on their distances, which produces significantly smoother results. The line of longitude is complete. When the sample rate is increased to 16, it provides the highest image quality, with the fewest broken line visually.</p>
+<h2 id="task-6-%22level-sampling%22-with-mipmaps-for-texture-mapping">Task 6: &quot;Level sampling&quot; with mipmaps for texture mapping</h2>
+<p>Level sampling is basically choosing the resolution of a picture, with different level of mipmaps to choose from. To implement level sampling for texture mapping, I first found the Barycentric coordinates corresponding to the pixels, calculate corresponding dx and dy to calculate the level, and get the texture color using the <code>get_texel</code>.</p>
+<p>Tradeoffs Between Techniques:</p>
+<ol>
+<li>
+<p><strong>Pixel Sampling</strong>:</p>
+<ul>
+<li><strong>Speed</strong>: Can be slower as it involves analyzing every pixel individually.</li>
+<li><strong>Memory Usage</strong>: Requires more memory as information for every pixel needs to be stored.</li>
+<li><strong>Antialiasing Power</strong>: Provides excellent antialiasing since it evaluates each pixel precisely.</li>
+</ul>
+</li>
+<li>
+<p><strong>Level Sampling</strong>:</p>
+<ul>
+<li><strong>Speed</strong>: Can be faster as it selects from precomputed levels of detail rather than analyzing every pixel.</li>
+<li><strong>Memory Usage</strong>: Generally requires less memory as it stores precomputed levels of detail instead of pixel data.</li>
+<li><strong>Antialiasing Power</strong>: May not provide as good antialiasing as pixel sampling since it's based on precomputed levels of detail.</li>
+</ul>
+</li>
+<li>
+<p><strong>Number of Samples per Pixel</strong>:</p>
+<ul>
+<li><strong>Speed</strong>: Can vary depending on the number of samples; more samples generally mean slower rendering.</li>
+<li><strong>Memory Usage</strong>: Increases with more samples per pixel as each sample needs to be stored.</li>
+<li><strong>Antialiasing Power</strong>: More samples per pixel generally lead to better antialiasing as it averages multiple samples.</li>
+</ul>
+</li>
+</ol>
+<p>To show four versions of combinations, I found an image of sleepy girl online. I copied <code>svg\texmap\test6.svg</code> and created <code>svg\Rye.svg</code>.</p>
+<p><img src="../img/sleepy.PNG" alt="alt text"></p>
+<p><em>Original image.</em></p>
+<p float="left">
+  <img src="screenshot_2-13_10-53-25.png" width="300" />
+  <img src="screenshot_2-13_10-53-33.png" width="300" /> 
+  <img src="screenshot_2-13_10-53-39.png" width="300" />
+  <img src="screenshot_2-13_10-53-43.png" width="300" />
+</p>
+<p><em>From left to right: L_ZERO and P_NEAREST, L_ZERO and P_LINEAR, L_NEAREST and P_NEAREST, L_NEAREST and P_LINEAR.</em></p>
+<p>The tradeoff between rendering speed, memory usage, and image quality is obvious with the inspector of the girl's right eye. The left image (L_ZERO and P_NEAREST) is the fastest but result in some blue colors that should not show up. The second image (L_ZERO and P_LINEAR) provides slightly smoother transitions but still has some extra dark blue pixels. I personally like the third image (L_NEAREST and P_NEAREST) the most, as it balances between aliasing and blurry. The right image (L_NEAREST and P_LINEAR) further reduces, but the image also looks a little blurry if I don't zoom in. Overall, I would pick the combination of L_NEAREST and P_NEAREST, considering computational cost and visual result.</p>
+
+</body>
 </html>
