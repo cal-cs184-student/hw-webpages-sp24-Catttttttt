@@ -135,7 +135,7 @@
   Briefly explain how de Casteljau algorithm extends to Bezier surfaces and how you implemented it in order to evaluate Bezier surfaces.
 </b>
 <p>
-    YOUR RESPONSE GOES HERE
+  De Casteljau's algorithm extends to Bezier surfaces by applying an additional separable 1D De Casteljau's algorithm. In this method, each row of control points defines a Bezier curve, and then all the resulting points form another set of control points, which further results in a single point lying on the Bezier surface at the given parameters. In the implementation, the algorithm is adapted to work with a grid of control points. The `evaluateStep` function computes the intermediate points along one dimension of the control points grid, and the `evaluate1D` function fully evaluates one-dimensional de Casteljau's algorithm for a single point. Finally, the `evaluate` function evaluates the Bezier surface at the given parameters by first evaluating the grid of control points along rows and then evaluating the resulting column points along columns.
 </p>
 <br>
 
@@ -144,7 +144,9 @@
   Show a screenshot of bez/teapot.bez (not .dae) evaluated by your implementation.
 </b>
 <p>
-    YOUR RESPONSE GOES HERE
+  <div align="middle">
+		<img src="Screenshot 2024-02-21 131055.png" align="middle" width="50%">
+	</div>
 </p>
 <br>
 
